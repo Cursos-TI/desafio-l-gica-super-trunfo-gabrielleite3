@@ -124,5 +124,6 @@
    printf("## %s VENCEU! ##\n", cidade2);
   }
 
+  printf("new comit");
 return 0;
 }

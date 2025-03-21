@@ -1,0 +1,126 @@
+#include <stdio.h>
+    int main(){
+        //DEFINIÇÃO DAS VARIAVEIS//
+    char pais1[20], pais2[20];
+    int populacao1, pontos1, populacao2, pontos2, atributo;
+    float area1, pib1, area2, pib2, densidade1, pibPercapita1, densidade2, pibPercapita2;
+
+    //________________O JOGADOR VAI LER O DADOS SOLICIDADOS E FORNECER OS DADOS DA CARTA 1_________________//
+
+    printf("Carta 1!\n");
+
+    //PAÍS
+    printf("\nDigite o País: ");
+    scanf("%19s", pais1);
+    //POPULAÇÃO
+    printf("Digite a populacao: ");
+    scanf("%d", &populacao1);
+    //ÁREA
+    printf("Digite a area: ");
+    scanf("%f", &area1);
+    //PIB
+    printf("Digite o PIB: ");
+    scanf("%f", &pib1);
+    //PONTOS TURISTICOS
+    printf("Digite os pontos turisticos: ");
+    scanf("%d", &pontos1);
+
+    densidade1 = (float)populacao1 / area1; //CALCULO DA DENSIDADE
+    pibPercapita1 = pib1 / (float)populacao1;//CALCULO DO PIBPERCAPITA
+   
+    //________________O JOGADOR VAI LER O DADOS SOLICIDADOS E FORNECER OS DADOS DA CARTA 2_________________//
+
+    //TUDO SE REPETE PARA A CARTA 2//
+    printf("\nCarta 2!\n");
+
+    printf("\nDigite o País: ");
+    scanf("%19s", pais2);
+
+    printf("Digite a populacao: ");
+    scanf("%d", &populacao2);
+
+    printf("Digite a Area: ");
+    scanf("%f", &area2);
+
+    printf("Digite o PIB: ");
+    scanf("%f", &pib2);
+
+    printf("Digite os pontos turisticos: ");
+    scanf("%d", &pontos2);
+    printf("\n");
+
+    densidade2 = (float)populacao2 / area2; 
+    pibPercapita2 = pib2 / (float)populacao2; 
+
+
+//MENU INTERATIVO - O JOGADOR VAI OBSERVAR AS OPÇÃOS E ENTRAR COM SUA ESCOLHA DO ATRIBUTO A SER COMPARADO//
+    printf("ATRIBUTOS\n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. Pib\n");
+    printf("4. Pontos turísticos\n");
+    printf("5. Densidade Populacional\n");
+    printf("6. Pib Per Capita\n");
+    printf("\nESCOLHA APENAS UM ATRIBUDO ACIMA: ");
+    scanf(" %d", &atributo);
+
+    float valor1, valor2; //CRIADO PRA SER USADO NA COMPARAÇÃO
+
+    switch (atributo) {
+    case 1:
+        printf("%s VS %s\n", pais1, pais2);
+        printf("Atributo: População\n");
+        printf("%s (%d) hab - %s (%d) hab\n", pais1, populacao1, pais2, populacao2);
+        valor1 = populacao1;
+        valor2 = populacao2;
+        break;
+    case 2:
+        printf("%s VS %s\n", pais1, pais2);
+        printf("Atributo: Área\n");
+        printf("%s (%.2f) km² - %s (%.2f) km²\n", pais1, area1, pais2, area2);
+        valor1 = area1;
+        valor2 = area2;
+        break;
+    case 3:
+        printf("%s VS %s\n", pais1, pais2);
+        printf("Atributo: Pib\n");
+        printf("%s R$(%.2f) reais- %s R$(%.2f) reais\n", pais1, pib1, pais2, pib2);
+        valor1 = pib1;
+        valor2 = pib2;
+        break;
+    case 4:
+        printf("%s VS %s\n", pais1, pais2);
+        printf("Atributo: Pontos turísticos\n");
+        printf("%s (%d) pontos - %s (%d) pontos\n", pais1, pontos1, pais2, pontos2);
+        valor1 = pontos1;
+        valor2 = pontos2;
+        break;
+    case 5:
+        printf("%s VS %s\n", pais1, pais2);
+        printf("Atributo: Densidade Populacional\n");
+        printf("%s (%.2f) hab/m² - %s (%.2f) hab/m²\n", pais1, densidade1, pais2, densidade2);
+        valor1 = densidade1;
+        valor2 = densidade2;
+        break;
+    case 6:
+        printf("%s VS %s\n", pais1, pais2);
+        printf("Atributo: Pib Per Capita\n");
+        printf("%s R$(%.2f) Reais - %s R$(%.2f) Reais\n", pais1, pibPercapita1, pais2, pibPercapita2);
+        valor1 = pibPercapita1;
+        valor2 = pibPercapita2;
+        break;
+    default:
+        printf("Atributo invalido\n");
+        break;
+    }
+if (valor1 == valor2)
+{
+   printf("EMPATOU");
+}else if (valor1 > valor2){
+    printf("CARTA 1 - VENCEU");
+}else {
+    printf("CARTA 2 - VENCEU");
+}
+
+    return 0;
+}
